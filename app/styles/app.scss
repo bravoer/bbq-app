@@ -1,0 +1,41 @@
+$primary: "amber";
+$accent: "amber";
+$warn: "amber";
+
+@import 'ember-paper';
+
+html, body {
+  height: 100%;
+  background-color: color($color-teal, '600');
+  color: #FFFFFF;
+}
+
+body > .ember-view {
+  height: 100%;
+}
+
+h1 {
+  font-family: 'Rammetto One', cursive;
+  font-weight: normal;
+}
+
+.container {
+  background-color: color($color-teal, '600');
+  text-align: center;
+
+  @media (min-width: 600px) {
+    .main-content {
+      min-width: 400px;
+
+      h1 {
+        font-size: 4em;
+      }
+    }
+  }
+
+  // Ember Paper overwrites
+  .md-input-container.md-default-theme .md-input, md-input-container .md-input {
+    color: #FFFFFF;
+  }
+
+}
