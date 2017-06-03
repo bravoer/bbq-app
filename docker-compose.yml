@@ -29,7 +29,7 @@ services:
     volumes:
       - ./backend/resources:/config
   export:
-    image: semtech/mu-export-js-template:0.2.0
+    image: semtech/mu-export-service:1.0.0
     volumes:
       - ./backend/export:/config
     links:
