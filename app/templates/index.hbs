@@ -2,19 +2,22 @@
   <div class="layout-row layout-align-center">
     <div class="layout-column flex-100">
       {{form.input label="Naam" value=name onChange=(action (mut name)) required=true}}
-      <div class="layout-row layout-align-center">
-        <p>komt met</p>
-        {{#paper-select options=amounts selected=amount onChange=(action (mut amount)) as |option|}}
-          {{option}}
-        {{/paper-select}}
-        <p>{{#if (eq amount 1)}}persoon{{else}}personen{{/if}}</p>
+      {{paper-radio label="Zal aanwezig zijn op de BBQ" value=false groupValue=isAbsent onChange="setIsPresent"}}
+      {{#if isPresent}}
+      <div class="layout-column flex-100">
+        <div class="layout-row layout-align-center present-option">
+          <p>Ik kom met</p>
+          {{#paper-select options=amounts selected=amount onChange=(action (mut amount)) as |option|}}
+            {{option}}
+          {{/paper-select}}
+          <p>{{#if (eq amount 1)}}persoon{{else}}personen{{/if}}</p>
+        </div>
+
+        <p>en neem mee:</p>
+        {{form.input label="Welke groente(n)/dessert ga je maken?" value=vegetable onChange=(action (mut vegetable))}}
       </div>
-    </div>
-  </div>
-  <div class="layout-row">
-    <div class="layout-column flex-100">
-      <p>en neemt mee:</p>
-      {{form.input label="Welke groente(n)/dessert ga je maken?" value=vegetable onChange=(action (mut vegetable))}}
+      {{/if}}
+      {{paper-radio label="Kan dit jaar spijtig genoeg niet aanwezig zijn" value=true groupValue=isAbsent onChange="setIsAbsent"}}
     </div>
   </div>
   <div class="layout-row layout-align-center">
