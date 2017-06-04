@@ -3,7 +3,7 @@
     <div class="layout-column flex-100">
       {{form.input label="Naam" value=name onChange=(action (mut name)) required=true}}
       {{paper-radio label="Zal aanwezig zijn op de BBQ" value=false groupValue=isAbsent onChange="setIsPresent"}}
-      {{#if isPresent}}
+      {{#liquid-if isPresent class="isPresent"}}
       <div class="layout-column flex-100">
         <div class="layout-row layout-align-center present-option">
           <p>Ik kom met</p>
@@ -16,7 +16,7 @@
         <p>en neem mee:</p>
         {{form.input label="Welke groente(n)/dessert ga je maken?" value=vegetable onChange=(action (mut vegetable))}}
       </div>
-      {{/if}}
+      {{/liquid-if}}
       {{paper-radio label="Kan dit jaar spijtig genoeg niet aanwezig zijn" value=true groupValue=isAbsent onChange="setIsAbsent"}}
     </div>
   </div>
